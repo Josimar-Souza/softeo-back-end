@@ -1,7 +1,7 @@
 const addClient = require('./addClient');
 
-const clientsModel = {
+const clientsService = {
   addClient,
 };
 
-module.exports = clientsModel;
+module.exports = clientsService;
