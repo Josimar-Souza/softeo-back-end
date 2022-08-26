@@ -18,7 +18,8 @@ const addClientSchema = joi.object({
         .required(),
       value: joi.number()
         .required(),
-    })),
+    }).required())
+    .required(),
 });
 
 module.exports = (value) => addClientSchema.validate(value);
