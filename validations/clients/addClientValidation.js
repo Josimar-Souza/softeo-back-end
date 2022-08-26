@@ -13,7 +13,8 @@ const addClientSchema = joi.object({
     .required(),
   installments: joi.array()
     .items(joi.object({
-      date: joi.date()
+      date: joi.string()
+        .regex(/\d{2}(-)\d{2}(-)\d{4}/)
         .required(),
       value: joi.number()
         .required(),
