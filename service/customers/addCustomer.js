@@ -24,7 +24,7 @@ const updateInstallmentsDate = (newCustomer) => {
 };
 
 module.exports = async (newCustomer) => {
-  const validationResult = customerValidations.addClientValidation(newCustomer);
+  const validationResult = customerValidations.addCustomerValidation(newCustomer);
 
   if ('error' in validationResult) {
     return new CustomError(validationResult.error.message, StatusCodes.BAD_REQUEST);
