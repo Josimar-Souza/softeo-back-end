@@ -1,9 +1,9 @@
 const { Router } = require('express');
-const clientsRouter = require('./clients/clientsRouter');
+const customerRouter = require('./customers/customerRouter');
 
 const rootRouter = Router({ mergeParams: true });
 
-clientsRouter(rootRouter);
+customerRouter(rootRouter);
 
 module.exports = (app) => {
   app.use(rootRouter);

@@ -1,6 +1,6 @@
 const joi = require('joi');
 
-const addClientSchema = joi.object({
+const addCustomerSchema = joi.object({
   name: joi.string()
     .min(3)
     .max(30)
@@ -22,4 +22,4 @@ const addClientSchema = joi.object({
     .required(),
 });
 
-module.exports = (value) => addClientSchema.validate(value);
+module.exports = (value) => addCustomerSchema.validate(value);
