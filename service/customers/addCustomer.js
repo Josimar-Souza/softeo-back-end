@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
-const clientsModel = require('../../model/clients');
-const clientValidations = require('../../validations/clients');
+const customerModel = require('../../model/customers');
+const customerValidations = require('../../validations/customers');
 const CustomError = require('../../helpers/customError');
 
 const dateStringFormatter = (dateString) => {
@@ -11,8 +11,8 @@ const dateStringFormatter = (dateString) => {
   return new Date(formattedDate);
 };
 
-const updateInstallmentsDate = (newClient) => {
-  const installments = newClient.installments.map((installment) => {
+const updateInstallmentsDate = (newCustomer) => {
+  const installments = newCustomer.installments.map((installment) => {
     const formattedDate = dateStringFormatter(installment.date);
     return {
       date: formattedDate,
@@ -23,19 +23,19 @@ const updateInstallmentsDate = (newClient) => {
   return installments;
 };
 
-module.exports = async (newClient) => {
-  const validationResult = clientValidations.addClientValidation(newClient);
+module.exports = async (newCustomer) => {
+  const validationResult = customerValidations.addClientValidation(newCustomer);
 
   if ('error' in validationResult) {
     return new CustomError(validationResult.error.message, StatusCodes.BAD_REQUEST);
   }
 
-  const clientToInsert = {
-    ...newClient,
-    installments: updateInstallmentsDate(newClient),
+  const customerToInsert = {
+    ...newCustomer,
+    installments: updateInstallmentsDate(newCustomer),
   };
 
-  const clientInserted = await clientsModel.addClient(clientToInsert);
+  const insertedCustomer = await customerModel.addCustomer(customerToInsert);
 
-  return clientInserted;
+  return insertedCustomer;
 };
