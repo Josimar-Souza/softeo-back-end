@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
       return res.status(updatedCustomer.statusCode).json({ message: updatedCustomer.message });
     }
 
-    return res.status(StatusCodes.OK).json({ updatedCustomer });
+    return res.status(StatusCodes.OK).json({ message: 'Customer successfully updated!' });
   } catch (error) {
     next(error);
   }
