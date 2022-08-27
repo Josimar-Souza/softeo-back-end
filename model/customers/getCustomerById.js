@@ -9,7 +9,7 @@ const { DB_CUSTOMERS_COLLECTION } = process.env;
 module.exports = async (id) => {
   const db = await getDBConnection();
 
-  const customer = await db.collection(DB_CUSTOMERS_COLLECTION).findOne(
+  const customer = await db.collection(DB_CUSTOMERS_COLLECTION).find(
     {
       _id: ObjectId(id),
     },
