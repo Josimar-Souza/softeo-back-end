@@ -10,7 +10,7 @@
 <p>Retorna um cliente cadastrado identificado pelo id informado na rota.</p>
 <span style="color: red"><strong>DELETE</strong></span>
 <span>/customers/:id</span>
-<p>Deleta um cliente pelo seu id informado na rota</p>
+<p>Deleta um cliente com seu id informado na rota</p>
 <span style="color: lightgreen"><strong>POST</strong></span>
 <span>/customers</span>
 <p>Cadastra um novo cliente.</p>
@@ -19,7 +19,7 @@
   {
     "name": string, min 3, max 30, necessário,
     "email": string, email válido, necessário,
-    "phone": number, min 11 dígitos, necessário,
+    "phone": number, min 11 dígitos, max 11 dígitos necessário,
     "installments": [
       {
         "date": string, dd-mm-aaaa, necessário,
@@ -30,13 +30,13 @@
 </pre>
 <span style="color: magenta"><strong>PUT</strong></span>
 <span>/customers/:id</span>
-<p>Atualiza o cadastro de um cliente identificado pelo seu id informado narota</p>
+<p>Atualiza o cadastro de um cliente identificado pelo seu id informado na rota</p>
 <p>Exemplo do corpo da requisição com os tipos e restrições das chaves</p>
 <pre>
   {
     "name": string, min 3, max 30, opcional,
     "email": string, email válido, opcional,
-    "phone": number, min 11 dígitos, opcional,
+    "phone": number, min 11 dígitos, max 11 dígitos, opcional,
     "installments": [
       {
         "date": string, dd-mm-aaaa, necessário,
@@ -47,7 +47,7 @@
 </pre>
 
 <h1>Desenvolvimento:</h1>
-<p>Para esse projeto criei uma api utilizando Node.js e Express, joi para as validações Pm2 para gerenciar os processos e o MongoDB como banco de dados</p>
+<p>Para esse projeto criei uma api utilizando Node.js e Express, Joi para as validações, Pm2 para gerenciar os processos e o MongoDB como banco de dados</p>
 <p>Todas as tecnologias utilizadas durante o desenvolvimento</p>
 <ul>
   <li>Node.js</li>
